@@ -30,9 +30,12 @@ paddleB = Paddle(WHITE, 10, 100)
 paddleB.rect.x = 670
 paddleB.rect.y = 200
 
-ball = Ball(WHITE, 10, 10)
+sebesseg = 7
+
+ball = Ball(WHITE, 10, 10, sebesseg)
 ball.rect.x = 345
 ball.rect.y = 195
+ball = Ball()
 
 # This will be a list that will contain all the sprites we intend to use in our game.
 all_sprites_list = pygame.sprite.Group()
@@ -43,7 +46,6 @@ all_sprites_list.add(paddleB)
 all_sprites_list.add(ball)
 
 # The loop will carry on until the user exits the game (e.g. clicks the close button).
-carryOn = True
 
 # The clock will be used to control how fast the screen updates
 clock = pygame.time.Clock()
@@ -64,6 +66,9 @@ szamlalo = 0
 szamlalo2 = 0
 szamlalo3 = 0
 szamlalo4 = 0
+
+carryOn = True
+
 while carryOn:
     
     if valtozo == False:
@@ -160,7 +165,8 @@ while carryOn:
     fps = 1/(cTime-pTime)
     pTime = cTime
     
-    #cv2.putText(img, str(int(fps)), (10,70), cv2.FONT_HERSHEY_PLAIN, 3,(255,0,255),3)
+    #cv2.putText(img, str(int(fps)), (10,70), cv2.FONT_HERSHEY_PLAIN, 3,(255,0,255),3) #fps ki irasa
+    cv2.line(img,(300,800),(300,0),(255,255,255),10)
 
     cv2.imshow("image", flipped)
     cv2.waitKey(1)
